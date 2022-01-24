@@ -73,6 +73,11 @@ body {
     width: 50%;
 }
 
+.big-button2:hover {
+    width: 60%;
+    transition: width 1s;
+}
+
 
 
 /* -------------------------------------Page 2------------------------------------ */
@@ -94,9 +99,27 @@ body {
 .formerond{
 	height: 300px; 
 	width: 300px; 
-	background-color: blue;
+	background-color: #80cf11;
 	border: none;
 	border-radius: 50%; 
+}
+
+.formerond2{
+    height: 300px; 
+	width: 300px; 
+	background-color: #80cf1163;
+    border-color: #000000;
+    border: dashed 5px;
+	border-radius: 50%;
+    position: relative;
+}
+
+.fa-dropbox{
+    position: absolute;
+}
+
+.signposition{
+    
 }
 
 
@@ -136,4 +159,78 @@ body {
     width: 60%;
     padding-top: 20%;
 }
+  /* -------------------------------------Page 1------------------------------------ */
+  /* ----------------------------------------- */
+  .imgchoix{
+    width: 100% !important;
+    padding: 20%;
+}
+
+.choice{
+    font-size: 130%;
+}
+
+.container-fluid{
+    text-align: center;
+}
+
+.boutons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.would{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.big-button2 {
+  width: 70%;
+}
+
+#friend, #computer{
+    padding-top: 10%;
+}
+
+/* -------------------------------------Page 2------------------------------------ */
+  /* ----------------------------------------- */
+.coin{
+    width: 15%;
+}
+
+.imgjouer{
+    width: 40%;
+}
+
+p{
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.cercle{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.formerond{
+	height: 200px; 
+	width: 200px; 
+	background-color: blue;
+	border: none;
+	border-radius: 50%;
+}
+.formerond2{
+    height: 200px; 
+	width: 200px; 
+	background-color: rgba(0, 0, 255, 0.267);
+    border-color: #000000;
+    border: dashed 5px;
+	border-radius: 50%;
+}
+
 }
