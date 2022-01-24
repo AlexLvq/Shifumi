@@ -7,41 +7,21 @@
 /* ---------------------Page Accueil-------------------- */
 
 body {
-    background-color: #f4a460 !important;
+    background-image: url(../img/cloudbg.gif);
+    background-size: cover;
     font-family: 'Press Start 2P', cursive !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0;
-    /* height: 100vh !important;
-    width: 100vw; */
 }
 
   /* ---------------------Page Accueil-------------------- */
 
-  .contentaccueil{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.imgshifu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.contentaccueil{
+    padding: 3%;
 }
 
 .shifumimg{
-    width: 80%;
+    width: 30%;
 }
-
-  /* ---------------------Title-------------------- */
-  .title{
-    font-size: 70px;
-    padding: 0;
-    margin: 0;
-  }
 
 /* ---------------------Button-------------------- */
 
@@ -50,33 +30,20 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-button {
-    cursor: pointer;
-    border: solid 1px;
-    border-color: #000000;
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: inherit;
-}
   
 .big-button {
-    padding: 1em 2em;
-    border: 1px solid;
-    border-radius: 1em;
-    background-color: #ffe2bd;
-    border-color: #000000;
-    transform-style: preserve-3d;
-    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    width: 30%;
+}
+
+.big-button:hover {
+    width: 35%;
+    transition: width 1s;
 }
 
   /* -------------------------------------Page 1------------------------------------ */
   /* ----------------------------------------- */
   .imgchoix{
-      width: 25% !important;
+      width: 20% !important;
       padding-bottom: 5%;
   }
 
@@ -103,13 +70,7 @@ button {
   }
 
   .big-button2 {
-    padding: 3% 8%;
-    border: 1px solid;
-    border-radius: 1em;
-    background-color: #ffe2bd;
-    border-color: #000000;
-    transform-style: preserve-3d;
-    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    width: 50%;
 }
 
 
@@ -117,11 +78,11 @@ button {
 /* -------------------------------------Page 2------------------------------------ */
   /* ----------------------------------------- */
 .coin{
-    width: 15%;
+    width: 10%;
 }
 
 .imgjouer{
-    width: 30%;
+    width: 25%;
 }
 
 .cercle{
@@ -151,4 +112,28 @@ button {
         border: none;
         border-radius: 50%;
     }
+
+
+    /* ---------------------Page Accueil-------------------- */
+
+  .contentaccueil{
+    padding: 50%;
+}
+
+.shifumimg{
+    width: 50%;
+}
+
+/* ---------------------Button-------------------- */
+
+.timbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.big-button {
+    width: 60%;
+    padding-top: 20%;
+}
 }
