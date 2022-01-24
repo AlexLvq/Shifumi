@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div id="content" class="container-fluid">
         <div class="row">
             <div class="col-4 p-0">
                 <p class="m-0">You</p>
@@ -50,9 +50,13 @@
             <div class="col signposition">
                 <input draggable="true" type="image" id="paper" alt="paper" class="sign" src="assets\img\paper.png">
                 <input draggable="true" type="image" id="rock" alt="rock" class="sign" src="assets\img\rock.png">
-                <input draggable="true" type="image" id="scissors" alt="scissors" class="sign" src="assets\img\scissors.png">
+                <input draggable="true" type="image" id="scissors" alt="scissors" class="sign"
+                    src="assets\img\scissors.png">
             </div>
         </div>
+    </div>
+    <div id="resultat">
+        <p id="result"></p>
     </div>
     <script src="assets\js\script.js"></script>
 </body>
