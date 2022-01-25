@@ -96,6 +96,7 @@ body {
     padding-top: 20px;
     display: flex;
     justify-content: center;
+    flex-grow: 2;
 }
 
 .formerond{
@@ -113,7 +114,6 @@ body {
     border-color: #000000;
     border: dashed 5px;
 	border-radius: 50%;
-    position: relative;
 }
 
 .espacesign{
