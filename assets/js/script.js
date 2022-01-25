@@ -8,10 +8,31 @@ var sign2 = document.getElementById('rock');
 var sign3 = document.getElementById('scissors');
 var signsCpu = ['rock', 'paper', 'scissors'];
 var cpu = ['rock', 'paper', 'scissors'];
+var cpusign = document.querySelectorAll('.sign-')
+var computerChoice;
+var putUserScore = document.querySelector('.user-score');
+var putCpuScore = document.querySelector('.cpu-score');
+
+var userScore = 0;
+var cpuScore = 0;
+
+var win;
+var loose;
 
 
 target.addEventListener('dragover', function (ev) {
     ev.preventDefault();
+})
+
+
+//   ------------------------Changement de couleur----------------------
+target.addEventListener('dragenter', function (e) {
+    e.preventDefault();
+    this.style.borderColor = "red";
+})
+target.addEventListener('dragleave', function (a) {
+    a.preventDefault();
+    this.style.borderColor = "#212529"
 })
 
 //   ------------------------Rock----------------------
@@ -41,8 +62,38 @@ target.addEventListener('drop', function (ev) {
 // ------------------- Lancement Game ------------------------
 target.addEventListener('drop', function (e) {
     e.preventDefault();
+    computerChoice = random();
+    cpusign.className = `.sign-${computerChoice}`
     winner(signsCpu[random(0, 2)], target.firstChild.id);
 })
+// -------------------------- Apparition jeu CPU ---------------------------
+// cpu.addEventListener('drop', function (r) {
+//     r.preventDefault();
+
+//     winner(signsCpu[random(0, 2)], target2.firstChild.id);
+// })
+
+
+
+// -------------------------- Win / Loose / Egality ---------------------------
+var youWin;
+var youLoose;
+var egality;
+
+result.addEventListener('drop', function () {
+    ;
+})
+
+youWin.addEventListener('drop', function () {
+    document.getElementById('content').style.display = 'none';
+})
+youLoose.addEventListener('drop', function () {
+    document.getElementById('content').style.display = 'none';
+})
+egality.addEventListener('drop', function () {
+    document.getElementById('content').style.display = 'none';
+})
+
 
 
 // -------------------------- Game ---------------------------
@@ -52,55 +103,60 @@ function random(min, max) {
 
 function winner(cpu, user) {
 
-    console.log('cpu', cpu)
-    console.log('user', user)
+    if (cpu == "rock") {
+        if (user == "paper") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You WIN`;
+            userScore++;
+        } else if (user == "scissors") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You LOOSE`;
+            cpuScore++;
+        }
+    } else if (cpu == "paper") {
+        if (user == "rock") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You LOOSE`;
+            cpuScore++;
+        } else if (user == "scissors") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You LOOSE`;
+            userScore++;
+        }
+    } else if (cpu == "scissors") {
+        if (user == "rock") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You LOOSE`;
+            userScore++;
+        } else if (user == "paper") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `You LOOSE`;
+            cpuScore++;
+        }
+        // Egalite
+    } if (cpu == "scissors") {
+        if (user == "scissors") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `Egality`;
+        }
+    } if (cpu == "paper") {
+        if (user == "paper") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `Egality`;
+        }
+    } if (cpu == "rock") {
+        if (user == "rock") {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('result').outerHTML += `Egality`;
+        }
+
+
+    }
 }
 
 
-// -------------------------- Apparition jeu CPU ---------------------------
-cpu.addEventListener('drop', function (r){
-    r.preventDefault();
-    winner(signsCpu[random(0,2)], target2.firstChild.id);
-})
 
 
-var win;
-var loose;
-
-function win() {
-    if ((you == "rock") && (computerChoice == "scissors")(you == "paper") && (computerChoice == "rock")(you == "scissors") && (computerChoice == "paper"));
-    alert('YOU WIN');
-}
-
-function loose() {
-    if ((computerChoice == "rock") && (you == "scissors")(computerChoice == "paper") && (you == "rock")(computerChoice == "scissors") && (you == "paper"));
-    alert('YOU LOOSE');
-}
-
-    // if (cpu == "rock") {
-    //     if (user == "paper") {
-    //         userScore++;
-    //         changeColor('lerond');
-    //     } else if (user == "scissors") {
-    //         computerScore++;
-    //         changeColor('computer')
-    //     }
-    // } else if (cpu == "paper") {
-    //     if (user == "rock") {
-    //         computerScore++;
-    //         changeColor('computer')
-    //     } else if (user == "scissors") {
-    //         userScore++;
-    //         changeColor('lerond')
-    //     }
-    // } else if (cpu == "scissors") {
-    //     if (user == "rock") {
-    //         userScore++;
-    //         changeColor('lerond')
-    //     } else if (user == "paper") {
-    //         computerScore++;
-    //         changeColor('computer')
-    //     }
-    // }
-
-console.log()
+// -------------------------- Score ---------------------------
+putUserScore.innerHTML = userScore;
+putCpuScore.innerHTML = cpuScore;

@@ -25,22 +25,22 @@
     <div id="content" class="container-fluid">
         <div class="row">
             <div class="col-4 p-0">
-                <p class="m-0">Computer</p>
+                <p class="m-0 current-scores">Computer</p>
                 <img class="coin" src="assets\img\coin.gif" alt="coin">
-                <p>0</p>
+                <span class="cpu-score">0</span>
             </div>
             <div class="col-4 p-0">
                 <img class="imgjouer" src="assets\img\shifumi.png" alt="shifumi">
             </div>
             <div class="col-4 p-0">
-                <p class="m-0">You</p>
+                <p class="m-0 current-scores">You</p>
                 <img class="coin" src="assets\img\coin.gif" alt="coin">
-                <p>0</p>
+                <span class="user-score">0</span>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-6 cercle">
-                <div id="lerond2" class="formerond"></div>
+                <div id="lerond2" class="formerond rock paper scissors"></div>
             </div>
             <div class="col-12 col-md-6 cercle">
                 <div id="lerond" class="formerond2"></div>
@@ -49,15 +49,20 @@
         </div>
         <div class="row">
             <div class="col signposition">
-                <img draggable="true" id="rock" alt="rock" class="sign" src="assets\img\rock.png">
-                <img draggable="true" src="assets\img\paper.png" id="paper" alt="paper" class="sign espacesign">
-                <img draggable="true" id="scissors" alt="scissors" class="sign" src="assets\img\scissors.png">
+                <img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets\img\rock.png">
+                <img draggable="true" src="assets\img\paper.png" id="paper" alt="paper"
+                    class="sign sign-paper espacesign">
+                <img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors"
+                    src="assets\img\scissors.png">
             </div>
         </div>
     </div>
 
     <div id="resultat">
-        <p id="result"></p>
+        <form class="leresultat" action="./page2.html">
+            <p id="result"></p>
+            <input type="image" id="playagain" alt="playagain" class="playagain" src="assets\img\button_play_again.png">
+        </form>
     </div>
     <script src="assets\js\script.js"></script>
 </body>
