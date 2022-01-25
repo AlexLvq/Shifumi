@@ -19,6 +19,25 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Shifumi, à toi de jouer !</title>
+
+
+        <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+
+
 </head>
 
 <body>
@@ -43,15 +62,14 @@
                 <div class="formerond"></div>
             </div>
             <div class="col-12 col-md-6 cercle">
-                <div class="formerond2"><i class="fab fa-dropbox"></i></div>
+                <div ondrop="drop(event)" ondragover="allowDrop(event)" id="drop" class="formerond2"><i class="fab fa-dropbox"></i></div>
             </div>
         </div>
         <div class="row">
             <div class="col signposition">
-                <input draggable="true" type="image" id="paper" alt="paper" class="sign" src="assets\img\paper.png">
-                <input draggable="true" type="image" id="rock" alt="rock" class="sign" src="assets\img\rock.png">
-                <input draggable="true" type="image" id="scissors" alt="scissors" class="sign"
-                    src="assets\img\scissors.png">
+                <img draggable="true" ondragstart="drag(event)" src="assets\img\paper.png" id="paper" alt="paper" class="sign">
+                <img draggable="true" ondragstart="drag(event)" id="rock" alt="rock" class="sign espacesign" src="assets\img\rock.png">
+                <img draggable="true" ondragstart="drag(event)" id="scissors" alt="scissors" class="sign" src="assets\img\scissors.png">
             </div>
         </div>
     </div>

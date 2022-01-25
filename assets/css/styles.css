@@ -116,6 +116,18 @@ body {
     position: relative;
 }
 
+.espacesign{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.signposition{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ----------------------Resultat-------------------- */
 #resultat{
     font-weight: 500;
@@ -124,6 +136,8 @@ body {
     justify-content: center;
 }
 
+
+/* ----------------------Drag&Drop-------------------- */
 
 
 
