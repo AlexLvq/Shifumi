@@ -114,6 +114,9 @@ body {
     border-color: #000000;
     border: dashed 5px;
 	border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .espacesign{
