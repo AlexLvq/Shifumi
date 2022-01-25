@@ -76,23 +76,8 @@ target.addEventListener('drop', function (e) {
 
 
 // -------------------------- Win / Loose / Egality ---------------------------
-var youWin;
-var youLoose;
-var egality;
 
-result.addEventListener('drop', function () {
-    ;
-})
 
-youWin.addEventListener('drop', function () {
-    document.getElementById('content').style.display = 'none';
-})
-youLoose.addEventListener('drop', function () {
-    document.getElementById('content').style.display = 'none';
-})
-egality.addEventListener('drop', function () {
-    document.getElementById('content').style.display = 'none';
-})
 
 
 
@@ -107,30 +92,36 @@ function winner(cpu, user) {
         if (user == "paper") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You WIN`;
+            document.getElementById('resultat').style.display = 'block';
             userScore++;
         } else if (user == "scissors") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You LOOSE`;
+            document.getElementById('resultat').style.display = 'block';
             cpuScore++;
         }
     } else if (cpu == "paper") {
         if (user == "rock") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You LOOSE`;
+            document.getElementById('resultat').style.display = 'block';
             cpuScore++;
         } else if (user == "scissors") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You LOOSE`;
+            document.getElementById('resultat').style.display = 'block';
             userScore++;
         }
     } else if (cpu == "scissors") {
         if (user == "rock") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You LOOSE`;
+            document.getElementById('resultat').style.display = 'block';
             userScore++;
         } else if (user == "paper") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You LOOSE`;
+            document.getElementById('resultat').style.display = 'block';
             cpuScore++;
         }
         // Egalite
@@ -138,19 +129,20 @@ function winner(cpu, user) {
         if (user == "scissors") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('resultat').style.display = 'block';
         }
     } if (cpu == "paper") {
         if (user == "paper") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('resultat').style.display = 'block';
         }
     } if (cpu == "rock") {
         if (user == "rock") {
             document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('resultat').style.display = 'block';
         }
-
-
     }
 }
 
@@ -158,5 +150,7 @@ function winner(cpu, user) {
 
 
 // -------------------------- Score ---------------------------
+
+
 putUserScore.innerHTML = userScore;
 putCpuScore.innerHTML = cpuScore;

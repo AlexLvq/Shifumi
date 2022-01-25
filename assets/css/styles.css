@@ -146,6 +146,10 @@ body {
     align-items: center;
 }
 
+#resultat{
+    display: none;
+}
+
 .playagain{
     width: 40%;
 }
