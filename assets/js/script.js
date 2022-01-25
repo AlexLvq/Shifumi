@@ -6,7 +6,8 @@ var target2 = document.getElementById('lerond2');
 var sign = document.getElementById('paper');
 var sign2 = document.getElementById('rock');
 var sign3 = document.getElementById('scissors');
-var signsCpu = ['rock', 'paper', 'scissors']
+var signsCpu = ['rock', 'paper', 'scissors'];
+var cpu = ['rock', 'paper', 'scissors'];
 
 
 target.addEventListener('dragover', function (ev) {
@@ -54,6 +55,13 @@ function winner(cpu, user) {
     console.log('cpu', cpu)
     console.log('user', user)
 }
+
+
+// -------------------------- Apparition jeu CPU ---------------------------
+cpu.addEventListener('drop', function (r){
+    r.preventDefault();
+    winner(signsCpu[random(0,2)], target2.firstChild.id);
+})
 
 
 var win;

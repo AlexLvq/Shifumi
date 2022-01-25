@@ -104,7 +104,10 @@ body {
 	width: 300px; 
 	background-color: #80cf11;
 	border: none;
-	border-radius: 50%; 
+	border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .formerond2{
