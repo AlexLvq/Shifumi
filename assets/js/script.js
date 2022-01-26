@@ -134,6 +134,10 @@ function winner(cpu, user) {
         }
     }
 
+    
+    // var pourcent = document.getElementById('pourcent');
+    // (putUserScore / putCpuScore) * 100 = pourcent
+
 
     document.getElementById('resultat').style.display = 'block';
     document.getElementById('content').style.display = 'none';
