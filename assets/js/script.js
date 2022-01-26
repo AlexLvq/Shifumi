@@ -13,11 +13,15 @@ var computerChoice;
 var putUserScore = document.querySelector('.user-score');
 var putCpuScore = document.querySelector('.cpu-score');
 
+var playAgain = document.getElementById('playagain');
+
+var imgDrag = document.getElementById('lerond2');
+
 var userScore = 0;
 var cpuScore = 0;
 
 var win;
-var loose;
+var lose;
 
 
 target.addEventListener('dragover', function (ev) {
@@ -32,7 +36,7 @@ target.addEventListener('dragenter', function (e) {
 })
 target.addEventListener('dragleave', function (a) {
     a.preventDefault();
-    this.style.borderColor = "#212529"
+    this.style.borderColor = "#000000"
 })
 
 //   ------------------------Rock----------------------
@@ -62,22 +66,28 @@ target.addEventListener('drop', function (ev) {
 // ------------------- Lancement Game ------------------------
 target.addEventListener('drop', function (e) {
     e.preventDefault();
-    computerChoice = random();
-    cpusign.className = `.sign-${computerChoice}`
-    winner(signsCpu[random(0, 2)], target.firstChild.id);
+    // cpusign.className = `.sign-${computerChoice}` 
+    computerChoice = signsCpu[random(0, 2)]
+    winner(computerChoice, target.firstChild.id);
+
+    // -------------------------- Apparition jeu CPU ---------------------------
+
+    if (computerChoice === 'paper') {
+        imgDrag.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+    } else if (computerChoice === 'rock') {
+        imgDrag.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+    } else if (computerChoice === 'scissors') {
+        imgDrag.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+    }
+    console.log(computerChoice)
 })
-// -------------------------- Apparition jeu CPU ---------------------------
-// cpu.addEventListener('drop', function (r) {
-//     r.preventDefault();
-
-//     winner(signsCpu[random(0, 2)], target2.firstChild.id);
-// })
-
 
 
 // -------------------------- Win / Loose / Egality ---------------------------
 
-
+playAgain.addEventListener('click', function () {
+    document.getElementById('resultat').style.display = 'none';
+})
 
 
 
@@ -90,67 +100,60 @@ function winner(cpu, user) {
 
     if (cpu == "rock") {
         if (user == "paper") {
-            document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `You WIN`;
-            document.getElementById('resultat').style.display = 'block';
             userScore++;
+            putUserScore.innerHTML = userScore;
         } else if (user == "scissors") {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('result').outerHTML += `You LOOSE`;
-            document.getElementById('resultat').style.display = 'block';
+            document.getElementById('result').outerHTML += `You LOSE`;
             cpuScore++;
+            putCpuScore.innerHTML = cpuScore;
         }
     } else if (cpu == "paper") {
         if (user == "rock") {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('result').outerHTML += `You LOOSE`;
-            document.getElementById('resultat').style.display = 'block';
+            document.getElementById('result').outerHTML += `You LOSE`;
             cpuScore++;
+            putCpuScore.innerHTML = cpuScore;
         } else if (user == "scissors") {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('result').outerHTML += `You LOOSE`;
-            document.getElementById('resultat').style.display = 'block';
+            document.getElementById('result').outerHTML += `You LOSE`;
             userScore++;
+            putUserScore.innerHTML = userScore;
         }
     } else if (cpu == "scissors") {
         if (user == "rock") {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('result').outerHTML += `You LOOSE`;
-            document.getElementById('resultat').style.display = 'block';
+            document.getElementById('result').outerHTML += `You LOSE`;
             userScore++;
+            putUserScore.innerHTML = userScore;
         } else if (user == "paper") {
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('result').outerHTML += `You LOOSE`;
-            document.getElementById('resultat').style.display = 'block';
+            document.getElementById('result').outerHTML += `You LOSE`;
             cpuScore++;
+            putCpuScore.innerHTML = cpuScore;
         }
         // Egalite
     } if (cpu == "scissors") {
         if (user == "scissors") {
-            document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
-            document.getElementById('resultat').style.display = 'block';
         }
     } if (cpu == "paper") {
         if (user == "paper") {
-            document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
-            document.getElementById('resultat').style.display = 'block';
         }
     } if (cpu == "rock") {
         if (user == "rock") {
-            document.getElementById('content').style.display = 'none';
             document.getElementById('result').outerHTML += `Egality`;
-            document.getElementById('resultat').style.display = 'block';
         }
     }
+    document.getElementById('resultat').style.display = 'block';
+    document.getElementById('content').style.display = 'block';
 }
 
 
 
 
-// -------------------------- Score ---------------------------
+// -------------------------- Rest Game ---------------------------
+var data = document.addEventListener('drop', function(ev){
+    ev.target.innerHTML = document.getElementById(data).outerHTML;
+    setTimeout(1000);
+    console.log(data)
+});
 
 
-putUserScore.innerHTML = userScore;
-putCpuScore.innerHTML = cpuScore;

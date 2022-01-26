@@ -148,6 +148,8 @@ body {
 
 #resultat{
     display: none;
+    position: absolute;
+    overflow: hidden;
 }
 
 .playagain{
@@ -273,14 +275,14 @@ p{
 
 /* ----------------------Resultat-------------------- */
 .leresultat{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     font-weight: 300;
     font-size: 40px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 #playagain{
