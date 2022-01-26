@@ -21,8 +21,6 @@ var result = document.getElementById('result');
 var userScore = 0;
 var cpuScore = 0;
 
-var win;
-var lose;
 
 //   ------------------------DragnDrop----------------------
 target.addEventListener('dragover', function (ev) {
@@ -134,9 +132,16 @@ function winner(cpu, user) {
         }
     }
 
-    
-    // var pourcent = document.getElementById('pourcent');
-    // (putUserScore / putCpuScore) * 100 = pourcent
+
+
+
+
+    var pourcent = 0;
+    var pourcent = document.querySelector('.pourcent');
+    pourcent.innerHTML = Math.round(userScore / (userScore+cpuScore)*100) + '%';
+
+
+
 
 
     document.getElementById('resultat').style.display = 'block';

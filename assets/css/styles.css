@@ -141,6 +141,7 @@ body {
 
 .pourcentage{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -175,8 +176,6 @@ body {
     display: none;
     position: absolute;
     overflow: hidden;
-    top: 0;
-    left: 0;
 }
 
 .playagain{
@@ -276,7 +275,12 @@ body {
 }
 
 .bouttonsign{
-    width: 130%;
+    width: 60%;
+    margin-top: 15%;
+}
+
+.signposition{
+    padding-top: 5%;
 }
 
 .sign{
