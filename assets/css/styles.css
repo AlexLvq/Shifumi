@@ -84,6 +84,23 @@ body {
 
 /* -------------------------------------Page 2------------------------------------ */
   /* ----------------------------------------- */
+#bouttonsign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bouttonsign{
+    width: 80%;
+    margin-top: 40%;
+}
+
+#content{
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1%;
+}
+
 .coin{
     width: 10%;
 }
@@ -102,7 +119,7 @@ body {
 .formerond{
 	height: 300px; 
 	width: 300px; 
-	background-color: #80cf11;
+	background-color: #318e36;
 	border: none;
 	border-radius: 50%;
     display: flex;
@@ -113,7 +130,7 @@ body {
 .formerond2{
     height: 300px; 
 	width: 300px; 
-	background-color: #80cf1163;
+	background-color: #318e36ab;
     border-color: #000000;
     border: dashed 5px;
 	border-radius: 50%;
@@ -122,9 +139,12 @@ body {
     align-items: center;
 }
 
-.draghere{
-    position: absolute;
-    
+.pourcentage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
 }
 
 .espacesign{

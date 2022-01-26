@@ -33,7 +33,7 @@ target.addEventListener('dragover', function (ev) {
 //-------Changement de couleur----
 target.addEventListener('dragenter', function (e) {
     e.preventDefault();
-    this.style.borderColor = "red";
+    this.style.borderColor = "#ffd500";
 })
 target.addEventListener('dragleave', function (a) {
     a.preventDefault();
@@ -105,13 +105,13 @@ function winner(cpu, user) {
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         } else if (user == "scissors") {
-            document.getElementById('result').innerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You WIN`;
             userScore++;
             putUserScore.innerHTML = userScore;
         }
     } else if (cpu == "scissors") {
         if (user == "rock") {
-            document.getElementById('result').innerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You WIN`;
             userScore++;
             putUserScore.innerHTML = userScore;
         } else if (user == "paper") {
@@ -133,6 +133,8 @@ function winner(cpu, user) {
             document.getElementById('result').innerHTML += `Egality`;
         }
     }
+
+
     document.getElementById('resultat').style.display = 'block';
     document.getElementById('content').style.display = 'none';
 
