@@ -22,6 +22,47 @@ var userScore = 0;
 var cpuScore = 0;
 
 
+//   --------------------------------------------------------
+//   ------------------------MatchMedia----------------------
+//   --------------------------------------------------------
+// var phone = window.matchMedia("(max-width: 768px)");
+
+// if (window.matchMedia("(max-width: 768px)").matches) {
+//     sign.addEventListener('click', function (v) {
+
+//     })
+//     sign2.addEventListener('click', function () {
+
+//     })
+//     sign3.addEventListener('click', function () {
+
+//     })
+// }
+
+var phone = window.matchMedia("(max-width:768px)");
+
+window.addEventListener('resize', function () {
+    console.log('je me resize');
+    if (phone.matches) {
+        //------------Rock-------
+        sign2.addEventListener('click', function (v) {
+            v.dataTransfer.setData("text", v.target.id);
+        })
+
+        //------------Paper---------
+        sign.addEventListener('click', function (v) {
+            v.dataTransfer.setData("text", v.target.id);
+        })
+
+        //-----------Scissors----------
+        sign3.addEventListener('click', function (v) {
+            v.dataTransfer.setData("text", v.target.id);
+        })
+    }
+})
+
+
+
 //   ------------------------DragnDrop----------------------
 target.addEventListener('dragover', function (ev) {
     ev.preventDefault();
@@ -138,7 +179,7 @@ function winner(cpu, user) {
 
     var pourcent = 0;
     var pourcent = document.querySelector('.pourcent');
-    pourcent.innerHTML = Math.round(userScore / (userScore+cpuScore)*100) + '%';
+    pourcent.innerHTML = Math.round(userScore / (userScore + cpuScore) * 100) + '%';
 
 
 
