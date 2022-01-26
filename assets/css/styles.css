@@ -18,11 +18,20 @@ body {
   /* ---------------------Page Accueil-------------------- */
 
 .contentaccueil{
-    padding: 3%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .shifumimg{
     width: 30%;
+}
+
+.cadre{
+    height: 30%;
 }
 
 /* ---------------------Button-------------------- */
@@ -45,7 +54,7 @@ body {
   /* -------------------------------------Page 1------------------------------------ */
   /* ----------------------------------------- */
   .imgchoix{
-      width: 20% !important;
+      width: 45%;
       padding-bottom: 5%;
   }
 
@@ -53,7 +62,13 @@ body {
       font-size: 120%;
   }
 
-  .container-fluid{
+  #page1{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
   }
 
@@ -75,10 +90,10 @@ body {
     width: 50%;
 }
 
-.big-button2:hover {
+/* .big-button2:hover {
     width: 60%;
     transition: width 1s;
-}
+} */
 
 
 
@@ -162,7 +177,7 @@ body {
 
 /* ----------------------Resultat-------------------- */
 .leresultat{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     font-weight: 500;
     font-size: 60px;
