@@ -1,6 +1,5 @@
 
-// ------------------- Drag & Drop ------------------------
-
+// ------------------- Var ------------------------
 var target = document.getElementById('lerond');
 var target2 = document.getElementById('lerond2');
 var sign = document.getElementById('paper');
@@ -25,13 +24,13 @@ var cpuScore = 0;
 var win;
 var lose;
 
-
+//   ------------------------DragnDrop----------------------
 target.addEventListener('dragover', function (ev) {
     ev.preventDefault();
 })
 
 
-//   ------------------------Changement de couleur----------------------
+//-------Changement de couleur----
 target.addEventListener('dragenter', function (e) {
     e.preventDefault();
     this.style.borderColor = "red";
@@ -41,46 +40,30 @@ target.addEventListener('dragleave', function (a) {
     this.style.borderColor = "#000000"
 })
 
-//   ------------------------Rock----------------------
+//------------Rock-------
 sign2.addEventListener('dragstart', function (ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 })
 
-//   ------------------------Paper----------------------
+//------------Paper---------
 sign.addEventListener('dragstart', function (ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 })
 
-//   ------------------------Scissors----------------------
+//-----------Scissors----------
 sign3.addEventListener('dragstart', function (ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 })
 
 target.addEventListener('drop', function (ev) {
     ev.preventDefault();
+    this.style.borderColor = "#000000"
     var data = ev.dataTransfer.getData("text");
-    // ev.target.appendChild(document.getElementById(data));
     ev.target.innerHTML = document.getElementById(data).outerHTML;
-})
-function reset() {
-    target.innerHTML = '';
-    target2.innerHTML = '';
-    result.innerHTML = '';
-}
 
 
 
-
-// ------------------- Lancement Game ------------------------
-
-target.addEventListener('drop', function (e) {
-    e.preventDefault();
-    // cpusign.className = `.sign-${computerChoice}` 
     computerChoice = signsCpu[random(0, 2)]
-    winner(computerChoice, target.firstChild.id);
-
-    // -------------------------- Apparition jeu CPU ---------------------------
-
     if (computerChoice === 'paper') {
         imgDrag.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
     } else if (computerChoice === 'rock') {
@@ -88,11 +71,15 @@ target.addEventListener('drop', function (e) {
     } else if (computerChoice === 'scissors') {
         imgDrag.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
     }
+    setTimeout(function () {
+        winner(computerChoice, target.firstChild.id);
+    }, 1000);
 })
-
-
-// -------------------------- Win / Loose / Egality ---------------------------
-
+function reset() {
+    target.innerHTML = '';
+    target2.innerHTML = '';
+    result.innerHTML = '';
+}
 
 
 // -------------------------- Game ---------------------------
@@ -152,12 +139,6 @@ function winner(cpu, user) {
     playAgain.addEventListener('click', function () {
         reset();
         document.getElementById('content').style.display = 'block';
-
+        document.getElementById('resultat').style.display = 'none';
     })
 }
-
-
-// -------------------------- Rest Game ---------------------------
-
-
-
