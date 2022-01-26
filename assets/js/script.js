@@ -17,6 +17,8 @@ var playAgain = document.getElementById('playagain');
 
 var imgDrag = document.getElementById('lerond2');
 
+var result = document.getElementById('result');
+
 var userScore = 0;
 var cpuScore = 0;
 
@@ -57,13 +59,20 @@ sign3.addEventListener('dragstart', function (ev) {
 target.addEventListener('drop', function (ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    // ev.target.appendChild(document.getElementById(data));
+    ev.target.innerHTML = document.getElementById(data).outerHTML;
 })
+function reset() {
+    target.innerHTML = '';
+    target2.innerHTML = '';
+    result.innerHTML = '';
+}
 
 
 
 
 // ------------------- Lancement Game ------------------------
+
 target.addEventListener('drop', function (e) {
     e.preventDefault();
     // cpusign.className = `.sign-${computerChoice}` 
@@ -79,15 +88,10 @@ target.addEventListener('drop', function (e) {
     } else if (computerChoice === 'scissors') {
         imgDrag.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
     }
-    console.log(computerChoice)
 })
 
 
 // -------------------------- Win / Loose / Egality ---------------------------
-
-playAgain.addEventListener('click', function () {
-    document.getElementById('resultat').style.display = 'none';
-})
 
 
 
@@ -100,60 +104,60 @@ function winner(cpu, user) {
 
     if (cpu == "rock") {
         if (user == "paper") {
-            document.getElementById('result').outerHTML += `You WIN`;
+            document.getElementById('result').innerHTML += `You WIN`;
             userScore++;
             putUserScore.innerHTML = userScore;
         } else if (user == "scissors") {
-            document.getElementById('result').outerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You LOSE`;
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         }
     } else if (cpu == "paper") {
         if (user == "rock") {
-            document.getElementById('result').outerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You LOSE`;
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         } else if (user == "scissors") {
-            document.getElementById('result').outerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You LOSE`;
             userScore++;
             putUserScore.innerHTML = userScore;
         }
     } else if (cpu == "scissors") {
         if (user == "rock") {
-            document.getElementById('result').outerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You LOSE`;
             userScore++;
             putUserScore.innerHTML = userScore;
         } else if (user == "paper") {
-            document.getElementById('result').outerHTML += `You LOSE`;
+            document.getElementById('result').innerHTML += `You LOSE`;
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         }
         // Egalite
     } if (cpu == "scissors") {
         if (user == "scissors") {
-            document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('result').innerHTML += `Egality`;
         }
     } if (cpu == "paper") {
         if (user == "paper") {
-            document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('result').innerHTML += `Egality`;
         }
     } if (cpu == "rock") {
         if (user == "rock") {
-            document.getElementById('result').outerHTML += `Egality`;
+            document.getElementById('result').innerHTML += `Egality`;
         }
     }
     document.getElementById('resultat').style.display = 'block';
-    document.getElementById('content').style.display = 'block';
+    document.getElementById('content').style.display = 'none';
+
+    playAgain.addEventListener('click', function () {
+        reset();
+        document.getElementById('content').style.display = 'block';
+
+    })
 }
 
 
-
-
 // -------------------------- Rest Game ---------------------------
-var data = document.addEventListener('drop', function(ev){
-    ev.target.innerHTML = document.getElementById(data).outerHTML;
-    setTimeout(1000);
-    console.log(data)
-});
+
 
 
