@@ -43,21 +43,36 @@ function JouerSon() {
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
 //   --------------------------------------------------------
-var blou = document.getElementById('lerond')
 var lesign = document.querySelectorAll('.sign');
 
 lesign.forEach(function (g) {
     g.addEventListener('click', function () {
+
+        userChoice = lesign
         if (g.id === 'paper') {
-            blou.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+            target.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
         } else if (g.id === 'rock') {
-            blou.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+            target.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
         } else if (g.id === 'scissors') {
-            blou.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+            target.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
         }
-        console.log(g)
+
+        computerChoice = signsCpu[random(0, 2)]
+        if (computerChoice === 'paper') {
+            target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+        } else if (computerChoice === 'rock') {
+            target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+        } else if (computerChoice === 'scissors') {
+            target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+        }
+        setTimeout(function () {
+            winner(computerChoice, target.firstChild.id);
+        }, 500);
     });
 })
+//   --------------------------------------------------------
+//   ------------------------MatchMedia----------------------
+//   --------------------------------------------------------
 
 
 
@@ -95,26 +110,26 @@ sign3.addEventListener('dragstart', function (ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 })
 
-// target.addEventListener('drop', function (ev) {
-//     ev.preventDefault();
-//     this.style.borderColor = "#000000"
-//     var data = ev.dataTransfer.getData("text");
-//     ev.target.innerHTML = document.getElementById(data).outerHTML;
+target.addEventListener('drop', function (ev) {
+    ev.preventDefault();
+    this.style.borderColor = "#000000"
+    var data = ev.dataTransfer.getData("text");
+    ev.target.innerHTML = document.getElementById(data).outerHTML;
 
 
 
-//     computerChoice = signsCpu[random(0, 2)]
-//     if (computerChoice === 'paper') {
-//         target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
-//     } else if (computerChoice === 'rock') {
-//         target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
-//     } else if (computerChoice === 'scissors') {
-//         target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
-//     }
-//     setTimeout(function () {
-//         winner(computerChoice, target.firstChild.id);
-//     }, 1000);
-// })
+    computerChoice = signsCpu[random(0, 2)]
+    if (computerChoice === 'paper') {
+        target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+    } else if (computerChoice === 'rock') {
+        target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+    } else if (computerChoice === 'scissors') {
+        target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+    }
+    setTimeout(function () {
+        winner(computerChoice, target.firstChild.id);
+    }, 1000);
+})
 function reset() {
     target.innerHTML = '';
     target2.innerHTML = '';
@@ -177,13 +192,9 @@ function winner(cpu, user) {
 
 
 
-
     var pourcent = 0;
     var pourcent = document.querySelector('.pourcent');
     pourcent.innerHTML = Math.round(userScore / (userScore + cpuScore) * 100) + '%';
-
-
-
 
 
     document.getElementById('resultat').style.display = 'block';
