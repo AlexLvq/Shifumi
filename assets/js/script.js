@@ -43,33 +43,37 @@ function JouerSon() {
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
 //   --------------------------------------------------------
-var lesign = document.querySelectorAll('.sign');
+const mq = window.matchMedia("(max-width: 768px)");
 
-lesign.forEach(function (g) {
-    g.addEventListener('click', function () {
+if (mq.matches) {
+    var lesign = document.querySelectorAll('.sign');
 
-        userChoice = lesign
-        if (g.id === 'paper') {
-            target.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
-        } else if (g.id === 'rock') {
-            target.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
-        } else if (g.id === 'scissors') {
-            target.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
-        }
+    lesign.forEach(function (g) {
+        g.addEventListener('click', function () {
 
-        computerChoice = signsCpu[random(0, 2)]
-        if (computerChoice === 'paper') {
-            target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
-        } else if (computerChoice === 'rock') {
-            target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
-        } else if (computerChoice === 'scissors') {
-            target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
-        }
-        setTimeout(function () {
-            winner(computerChoice, target.firstChild.id);
-        }, 500);
-    });
-})
+            userChoice = lesign
+            if (g.id === 'paper') {
+                target.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+            } else if (g.id === 'rock') {
+                target.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+            } else if (g.id === 'scissors') {
+                target.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+            }
+
+            computerChoice = signsCpu[random(0, 2)]
+            if (computerChoice === 'paper') {
+                target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+            } else if (computerChoice === 'rock') {
+                target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+            } else if (computerChoice === 'scissors') {
+                target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+            }
+            setTimeout(function () {
+                winner(computerChoice, target.firstChild.id);
+            }, 500);
+        });
+    })
+}
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
 //   --------------------------------------------------------
