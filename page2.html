@@ -21,7 +21,7 @@
     <!--------------------------------------- FavIcon -------------------------------------------->
     <link rel="icon" type="image/png" sizes="16x16" href="assets\img\paper.png">
 
-    <title>Shifumi, à toi de jouer !</title>
+    <title>Shifumi, your turn !</title>
 </head>
 
 <body>
@@ -33,7 +33,10 @@
                 <span class="cpu-score">0</span>
             </div>
             <div class="col-4 p-0">
-                <img class="imgjouer" src="assets\img\shifumi.png" alt="shifumi">
+                <!-- ----------------Audio------------------- -->
+                <audio loop id="music" src="assets/music/audio-8bit.mp3"></audio>
+                <img class="imgjouer" src="assets\img\shifumi.png" alt="shifumi" id="logo">
+                <!-- ----------------Audio------------------- -->
             </div>
             <div class="col-4 p-0">
                 <p class="m-0 current-scores">You</p>
@@ -41,7 +44,7 @@
                 <span class="user-score">0</span>
             </div>
         </div>
-        <div class="row">
+        <div class="row lignerondphone">
             <div class="col-12 col-md-4 offset-md-1 cercle">
                 <div id="lerond2" class="formerond rock paper scissors"></div>
             </div>
