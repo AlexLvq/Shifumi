@@ -3,9 +3,12 @@
     margin: 0;
 }
 
+/* ---------------------------------------------------------- */
+/* --------------------------Desktop------------------------- */
+/* ---------------------------------------------------------- */
+
 /* -------------------------------------Index------------------------------------ */
 /* ---------------------Page Accueil-------------------- */
-
 body {
     background-image: url(../img/cloudbg.gif);
     background-size: cover;
@@ -15,7 +18,7 @@ body {
     height: 100vh;
 }
 
-  /* ---------------------Page Accueil-------------------- */
+/* ---------------------Page Accueil-------------------- */
 
 .contentaccueil{
     width: 100vw;
@@ -52,7 +55,6 @@ body {
 }
 
   /* -------------------------------------Page 1------------------------------------ */
-  /* ----------------------------------------- */
   .imgchoix{
       width: 70%;
       padding-bottom: 5%;
@@ -99,7 +101,6 @@ body {
 
 
 /* -------------------------------------Page 2------------------------------------ */
-  /* ----------------------------------------- */
 #bouttonsign{
     display: flex;
     justify-content: center;
@@ -164,6 +165,10 @@ body {
     font-size: 30px;
 }
 
+.pourcent{
+    padding-top: 2%;
+}
+
 .espacesign{
     margin-left: 15px;
     margin-right: 15px;
@@ -203,12 +208,21 @@ body {
 }
 
 
-/* ----------------------Drag&Drop-------------------- */
 
 
 
 
 
+
+
+
+
+
+
+
+/* -------------------------------------------------------- */
+/* --------------------------Phone------------------------- */
+/* -------------------------------------------------------- */
 @media screen and (max-width:768px){
     .formerond{
         height: 150px; 
@@ -219,7 +233,7 @@ body {
     }
 
 
-    /* ---------------------Page Accueil-------------------- */
+/* ---------------------Page Accueil-------------------- */
 
   .contentaccueil{
     padding: 40%;
@@ -241,8 +255,7 @@ body {
     width: 60%;
     padding-top: 20%;
 }
-  /* -------------------------------------Page 1------------------------------------ */
-  /* ----------------------------------------- */
+/* -------------------------------------Page 1------------------------------------ */
   .imgchoix{
     width: 80%;
     padding: 0%;
@@ -279,7 +292,6 @@ body {
 }
 
 /* -------------------------------------Page 2------------------------------------ */
-  /* ----------------------------------------- */
 .coin{
     width: 15%;
 }
@@ -287,6 +299,8 @@ body {
 #content{
     height: 100vh;
     width: 100vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -295,8 +309,8 @@ body {
 }
 
 .lignerondphone{
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 #bouttonsign{
@@ -345,8 +359,6 @@ p{
     height: 150px; 
 	width: 150px; 
 	background-color: #318e36ab;
-    /* border-color: #000000;
-    border: dashed 5px; */
 	border-radius: 50%;
 }
 
@@ -356,10 +368,6 @@ p{
     height: 100vh;
     font-weight: 300;
     font-size: 40px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
 }
 
 #playagain{
@@ -369,5 +377,45 @@ p{
 .playagain{
     width: 80%;
 }
+
+}
+
+/* -------------------------------------------------------- */
+/* --------------------------Phone------------------------- */
+/* -------------------------------------------------------- */
+@media screen and (min-width:768px) and (max-width:992px){
+
+    .bouttonsign{
+        width: 70%;
+        margin-top: 10%;
+    }
+
+    .sign{
+        width: 25%;
+        padding-top: 5%;
+    }
+
+    .formerond{
+        height: 300px; 
+        width: 300px; 
+        background-color: #318e36;
+        border: none;
+        border-radius: 50%;
+    }
+    .formerond2{
+        height: 300px; 
+        width: 300px; 
+        background-color: #318e36ab;
+        border-radius: 50%;
+    }
+
+    #content{
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+
+    .coin{
+        width: 20%;
+    }
 
 }
