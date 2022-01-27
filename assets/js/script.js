@@ -20,7 +20,6 @@ var result = document.getElementById('result');
 var userScore = 0;
 var cpuScore = 0;
 
-
 var logo = document.getElementById('logo');
 // easter egg music
 logo.addEventListener('click', function () {
@@ -46,39 +45,39 @@ function JouerSon() {
 const mq = window.matchMedia("(max-width: 768px)");
 
 if (mq.matches) {
+
     var lesign = document.querySelectorAll('.sign');
+    function eventClick(ev) {
+        userChoice = lesign
+        if (ev.target.id === 'paper') {
+            target.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+        } else if (ev.target.id === 'rock') {
+            target.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+        } else if (ev.target.id === 'scissors') {
+            target.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+        }
+        ev.target.removeEventListener('click', eventClick);
 
+        computerChoice = signsCpu[random(0, 2)]
+        if (computerChoice === 'paper') {
+            target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
+        } else if (computerChoice === 'rock') {
+            target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
+        } else if (computerChoice === 'scissors') {
+            target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
+        }
+        setTimeout(function () {
+            ev.target.addEventListener('click', eventClick);
+            winner(computerChoice, target.firstChild.id);
+        }, 500);
+    }
     lesign.forEach(function (g) {
-        g.addEventListener('click', function () {
-
-            userChoice = lesign
-            if (g.id === 'paper') {
-                target.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
-            } else if (g.id === 'rock') {
-                target.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
-            } else if (g.id === 'scissors') {
-                target.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
-            }
-
-            computerChoice = signsCpu[random(0, 2)]
-            if (computerChoice === 'paper') {
-                target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
-            } else if (computerChoice === 'rock') {
-                target2.innerHTML = '<img draggable="true" id="rock" alt="rock" class="sign sign-rock" src="assets/img/rock.png">';
-            } else if (computerChoice === 'scissors') {
-                target2.innerHTML = '<img draggable="true" id="scissors" alt="scissors" class="sign sign-scissors" src="assets/img/scissors.png">';
-            }
-            setTimeout(function () {
-                winner(computerChoice, target.firstChild.id);
-            }, 500);
-        });
+        g.addEventListener('click', eventClick);
     })
 }
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
 //   --------------------------------------------------------
-
-
 
 
 
@@ -120,8 +119,6 @@ target.addEventListener('drop', function (ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.innerHTML = document.getElementById(data).outerHTML;
 
-
-
     computerChoice = signsCpu[random(0, 2)]
     if (computerChoice === 'paper') {
         target2.innerHTML = '<img draggable="true" src="assets/img/paper.png" id="paper" alt="paper" class="sign sign-paper espacesign">';
@@ -132,14 +129,13 @@ target.addEventListener('drop', function (ev) {
     }
     setTimeout(function () {
         winner(computerChoice, target.firstChild.id);
-    }, 1000);
+    }, 600);
 })
 function reset() {
     target.innerHTML = '';
     target2.innerHTML = '';
     result.innerHTML = '';
 }
-
 
 // -------------------------- Game ---------------------------
 function random(min, max) {
@@ -193,13 +189,11 @@ function winner(cpu, user) {
         }
     }
 
-
-
-
     var pourcent = 0;
     var pourcent = document.querySelector('.pourcent');
-    pourcent.innerHTML = Math.round(userScore / (userScore + cpuScore) * 100) + '%';
-
+    if ((userScore + cpuScore) != 0) {
+        pourcent.innerHTML = Math.round(userScore / (userScore + cpuScore) * 100) + '%';
+    }
 
     document.getElementById('resultat').style.display = 'block';
     document.getElementById('content').style.display = 'none';
@@ -210,3 +204,7 @@ function winner(cpu, user) {
         document.getElementById('resultat').style.display = 'none';
     })
 }
+
+console.log('┏━━━┓┏┓━━━━━━━┏┓━━━━━━━━━━━━━━━━━━━┏┓━┏┓━━━━━━━━━━┏┓━━━━━━━━━━━━━━━━━━━\n┃┏━┓┃┃┃━━━━━━━┃┃━━━━━━━━━━━━━━━━━━┏┛┗┓┃┃━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━\n┃┃━┗┛┃┃━┏┓┏━━┓┃┃┏┓━━━━┏━━┓┏━┓━━━━━┗┓┏┛┃┗━┓┏━━┓━━━━┃┃━┏━━┓┏━━┓┏━━┓━━━━━━\n┃┃━┏┓┃┃━┣┫┃┏━┛┃┗┛┛━━━━┃┏┓┃┃┏┓┓━━━━━┃┃━┃┏┓┃┃┏┓┃━━━━┃┃━┃┏┓┃┃┏┓┃┃┏┓┃━━━━━━\n┃┗━┛┃┃┗┓┃┃┃┗━┓┃┏┓┓━━━━┃┗┛┃┃┃┃┃━━━━━┃┗┓┃┃┃┃┃┃━┫━━━━┃┗┓┃┗┛┃┃┗┛┃┃┗┛┃┏┓┏┓┏┓\n┗━━━┛┗━┛┗┛┗━━┛┗┛┗┛━━━━┗━━┛┗┛┗┛━━━━━┗━┛┗┛┗┛┗━━┛━━━━┗━┛┗━━┛┗━┓┃┗━━┛┗┛┗┛┗┛\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┏━┛┃━━━━━━━━━━\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗━━┛━━━━━━━━━━')
+
+console.log('\n────────────────────▒████▒\n─────────────────░█████▓███░\n───────────────░███▒░░░░░░██\n──────────────▒██▒░░░▒▓▓▓▒░██\n─────────────▓██░░░▒▓█▒▒▒▓▒▓█\n────────────▓█▓─░▒▒▓█─────▓▓█░\n───────────▓█▒░▒▒▒▒█──▓▓▒▒─▓█▒\n──────────▒█▒░▒▒▒▒▓▒─▒▓▒▓▓─▒█░\n──────────█▓░▒▒▒▒▒▓░─▓▒──░░▒█░\n─────────██░▒▒▒▒▒▒█──▓──░▓████████\n────────░█▒▒▒▒▒▒▒▒▓░─█▓███▓▓▓▓██─█▓\n──────▒▓█▓▒▒▒▒▒▒▒▒▓███▓▓████▓▓██──█\n────░███▓▒▒▒▒▓▒▒▒████▒▒░░──████░──██░\n────██▒▒▒▒▒▒▒▒▒▓██▒────────▒██▓────▓█\n───▓█▒▒▒▒▒▒▒▒▓█▓─────▓───▒░░▓──▓────▓█\n───██▒▓▒▒▒▒▒█▓──────▒█▓──▓█░▒──▒░────█\n───██▒▒▓▓▓▒█▓▓───░──▓██──▓█▓▓▓█▓─────█\n───▓█▒██▓▓█▒▒▓█─────░█▓──▒░───░█▓────█\n───░██▓───▓▓▒▒▓▓─────░─────────▒▒─░─░█\n────▓█──▒░─█▒▓█▓──▒───────░─░───█▒──█▒\n─────█──░█░░█▓▒──▓██▒░─░─░─░─░░░█▒███\n─────█▒──▒▒──────▓██████▓─░░░░─▒██▓░\n─────▓█──────────░██▓▓▓██▒─░──░█▒\n──────██▒─────░───░██▓▓▓██▓▒▒▓█▒\n───────░████▒──░───▒█▓▓▓▓▓████▓\n──────▒▓██▓██▒──░───▓█████▓███\n────▒██▓░░░░▓█▓░────░█▒█▒─▒▓█▓\n───▓█▒░░▒▒▒▒▒▓███▓░──▓█▒─▒▓▓█\n──░█▒░▒████▓██▓▓▓██▒───░▓█▓█░\n──▓█▒▒█░─▒───▓█▓▓▓▓▓▓▒▒▓█▓█▓\n──▓█▒█░───────██▓▓▓▓▓█▓▓█▓██\n──▒█▓▓────────░██▓██▓▓▓▓▓▓▓▓█\n───██░────▓▓────█░─█▓▓▓▓▓▓▓─▒█████\n───██░───░──────▓░─▓▓▓▓▓▓▓█─▒█▒░▒██\n──▓█░▓░──▓▓────▒█░─█▓▓▓▓▓▓▓█▒─░░░▒██\n──█─▒██─░──────████▓▓▓▓▓▓▓█▓─░▒▒█▓▓█░\n─▓█─▓▒▓▒░░────▓█▓▓▓▓▓▓▓▓▓▓█░░▒▓█░──▒█\n─▒█░█▒▒█▒───░▓█▓▓▓▓▓▓▓▓▓▓█▓░▒▓▓──▓█▓█\n─█▓▒▓▒▒▓██████▓▓▓▓▓▓▓▓▓▓▓█▒▒▓▓─░█▓▒▒█░\n─█░▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▒▒▓─▒█▒▒▒▒█\n▒█─█▒▒▒▓█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓─▒█▒▒▒▒██\n▓█─█▒▒▒▒█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▒▓▒░█▒▒▒░▓█\n▓█─█▒▓▒▒▓█▓▓▓▓▓▓▓▓▓▓▓▓▓█▓▒▓░▓░░░░▒█░\n▒█─▓▓▓▓▒▓█▓▓▓▓▓▓▓▓█████▓▓▓▓▒▓░░─▒█▒\n─█▒▓▓▓▓▓▒▓██████████░░██▓█─▒█▓▒▓█░\n─▓█▒█▓▓▓▓▒▓██░─░▒░─────██▒░▓▓▓▒██\n──████▓▓▓██░───────────▓█░▓▒░░▓█░\n────░█████░─────────────██▓─▒██░\n─────────────────────────▓███▒')
