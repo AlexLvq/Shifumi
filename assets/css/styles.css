@@ -107,6 +107,14 @@ body {
     align-items: center;
 }
 
+p{
+    font-size: 30px;
+}
+
+span{
+    font-size: 25px;
+}
+
 .bouttonsign{
     width: 80%;
     margin-top: 40%;
@@ -118,19 +126,33 @@ body {
     text-align: center;
 }
 
+.alignement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .coin{
     width: 10%;
 }
 
 .imgjouer{
-    width: 25%;
+    width: 30%;
 }
 
 .cercle{
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    flex-grow: 2;
+    margin-left: 0 !important;
+}
+
+.lignerondphone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .formerond{
@@ -305,12 +327,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+}
+
+p{
+    font-size: 15px;
+}
+
+span{
+    font-size: 20px;
 }
 
 .lignerondphone{
     padding-top: 3vh;
     padding-bottom: 3vh;
+    text-align: center;
 }
 
 #bouttonsign{

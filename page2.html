@@ -25,12 +25,13 @@
 </head>
 
 <body>
+
     <div id="content" class="container-fluid">
         <div class="row">
-            <div class="col-4 p-0">
-                <p class="m-0 current-scores">Computer</p>
+            <div class="col-4 p-0 alignement">
+                <p class="m-0 current-scores">You</p>
                 <img class="coin" src="assets\img\coin.gif" alt="coin">
-                <span class="cpu-score">0</span>
+                <span class="user-score">0</span>
             </div>
             <div class="col-4 p-0">
                 <!-- ----------------Audio------------------- -->
@@ -38,13 +39,13 @@
                 <img class="imgjouer" src="assets\img\shifumi.png" alt="shifumi" id="logo">
                 <!-- ----------------Audio------------------- -->
             </div>
-            <div class="col-4 p-0">
-                <p class="m-0 current-scores">You</p>
+            <div class="col-4 p-0 alignement">
+                <p class="m-0 current-scores" id="taille">Computer</p>
                 <img class="coin" src="assets\img\coin.gif" alt="coin">
-                <span class="user-score">0</span>
+                <span class="cpu-score">0</span>
             </div>
         </div>
-        <div class="row lignerondphone">
+        <div class="row flex-row-reverse lignerondphone">
             <div class="col-12 col-lg-4 offset-lg-1 cercle">
                 <div id="lerond2" class="formerond rock paper scissors"></div>
             </div>
@@ -95,7 +96,7 @@
 
     <div id="resultat">
         <div class="leresultat">
-            <p id="result"></p>
+            <p id="result" class="fs-1"></p>
             <input type="image" id="playagain" alt="playagain" class="playagain" src="assets\img\button_play_again.png">
         </div>
     </div>

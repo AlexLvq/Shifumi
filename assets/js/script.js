@@ -20,8 +20,10 @@ var result = document.getElementById('result');
 var userScore = 0;
 var cpuScore = 0;
 
-var logo = document.getElementById('logo');
+
+
 // easter egg music
+var logo = document.getElementById('logo');
 logo.addEventListener('click', function () {
     JouerSon();
 });
@@ -37,6 +39,15 @@ function JouerSon() {
 }
 // easter egg music
 
+const ms = window.matchMedia("(min-width: 901px)");
+
+if (ms.matches) {
+    //   ------------------------Modal---------------------
+    var myModal = document.getElementById('myModal');
+    window.addEventListener('DOMContentLoaded', function () {
+        alert('Drag the sign of your choice into the dashed circle !')
+    })
+}
 
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
@@ -74,6 +85,13 @@ if (mq.matches) {
     lesign.forEach(function (g) {
         g.addEventListener('click', eventClick);
     })
+
+    //   ------------------------Modal---------------------
+    var myModal = document.getElementById('myModal');
+    window.addEventListener('DOMContentLoaded', function () {
+        alert('Click the sign of your choice !')
+    })
+
 }
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
