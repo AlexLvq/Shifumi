@@ -295,8 +295,8 @@ body {
 }
 
 .lignerondphone{
-    padding-top: 7%;
-    padding-bottom: 7%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
 #bouttonsign{
@@ -306,7 +306,7 @@ body {
 }
 
 .bouttonsign{
-    width: 60%;
+    width: 80%;
     margin-top: 10%;
 }
 
@@ -315,8 +315,8 @@ body {
 }
 
 .sign{
-    width: 25%;
-    margin-top: 1%;
+    width: 30%;
+    margin-top: 0%;
 }
 
 .imgjouer{
