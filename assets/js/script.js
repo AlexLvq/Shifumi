@@ -80,7 +80,7 @@ if (mq.matches) {
         setTimeout(function () {
             ev.target.addEventListener('click', eventClick);
             winner(computerChoice, target.firstChild.id);
-        }, 500);
+        }, 1000);
     }
     lesign.forEach(function (g) {
         g.addEventListener('click', eventClick);
@@ -145,7 +145,7 @@ target.addEventListener('drop', function (ev) {
     }
     setTimeout(function () {
         winner(computerChoice, target.firstChild.id);
-    }, 600);
+    }, 1000);
 })
 function reset() {
     target.innerHTML = '';
