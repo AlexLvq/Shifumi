@@ -41,13 +41,18 @@ function JouerSon() {
 
 const ms = window.matchMedia("(min-width: 901px)");
 
-if (ms.matches) {
-    //   ------------------------Modal---------------------
-    var myModal = document.getElementById('myModal');
-    window.addEventListener('DOMContentLoaded', function () {
-        alert('Drag the sign of your choice into the dashed circle !')
-    })
-}
+// if (ms.matches) {
+//     //   ------------------------Modal---------------------
+//     var myModal = document.getElementById('myModal');
+//     window.addEventListener('DOMContentLoaded', function () {
+//         myModal.style.display = "block";
+//         // alert('Click the sign of your choice !')
+
+//         window.addEventListener('click', function () {
+//             myModal.style.display = "none";
+//         })
+//     })
+// }
 
 //   --------------------------------------------------------
 //   ------------------------MatchMedia----------------------
@@ -80,17 +85,22 @@ if (mq.matches) {
         setTimeout(function () {
             ev.target.addEventListener('click', eventClick);
             winner(computerChoice, target.firstChild.id);
-        }, 1000);
+        }, 700);
     }
     lesign.forEach(function (g) {
         g.addEventListener('click', eventClick);
     })
 
     //   ------------------------Modal---------------------
-    var myModal = document.getElementById('myModal');
-    window.addEventListener('DOMContentLoaded', function () {
-        alert('Click the sign of your choice !')
-    })
+    // var tooltip = document.getElementById('anim');
+    // tooltip.addEventListener('click', function () {
+    //     innerHTML = `blblblblblbl`
+    //     // alert('Click the sign of your choice !')
+
+    //     document.addEventListener('click', function () {
+    //         tooltip.style.display = "none";
+    //     })
+    // })
 
 }
 //   --------------------------------------------------------
@@ -145,7 +155,7 @@ target.addEventListener('drop', function (ev) {
     }
     setTimeout(function () {
         winner(computerChoice, target.firstChild.id);
-    }, 1000);
+    }, 700);
 })
 function reset() {
     target.innerHTML = '';
@@ -163,30 +173,36 @@ function winner(cpu, user) {
     if (cpu == "rock") {
         if (user == "paper") {
             document.getElementById('result').innerHTML += `You WIN`;
+            result.setAttribute("style", "color:#318e36")
             userScore++;
             putUserScore.innerHTML = userScore;
         } else if (user == "scissors") {
             document.getElementById('result').innerHTML += `You LOSE`;
+            result.setAttribute("style", "color:#f53b23")
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         }
     } else if (cpu == "paper") {
         if (user == "rock") {
             document.getElementById('result').innerHTML += `You LOSE`;
+            result.setAttribute("style", "color:#f53b23")
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         } else if (user == "scissors") {
             document.getElementById('result').innerHTML += `You WIN`;
+            result.setAttribute("style", "color:#318e36")
             userScore++;
             putUserScore.innerHTML = userScore;
         }
     } else if (cpu == "scissors") {
         if (user == "rock") {
             document.getElementById('result').innerHTML += `You WIN`;
+            result.setAttribute("style", "color:#318e36")
             userScore++;
             putUserScore.innerHTML = userScore;
         } else if (user == "paper") {
             document.getElementById('result').innerHTML += `You LOSE`;
+            result.setAttribute("style", "color:#f53b23")
             cpuScore++;
             putCpuScore.innerHTML = cpuScore;
         }
@@ -194,14 +210,18 @@ function winner(cpu, user) {
     } if (cpu == "scissors") {
         if (user == "scissors") {
             document.getElementById('result').innerHTML += `Egality`;
+            result.setAttribute("style", "color:black")
+
         }
     } if (cpu == "paper") {
         if (user == "paper") {
             document.getElementById('result').innerHTML += `Egality`;
+            result.setAttribute("style", "color:black")
         }
     } if (cpu == "rock") {
         if (user == "rock") {
             document.getElementById('result').innerHTML += `Egality`;
+            result.setAttribute("style", "color:black")
         }
     }
 
@@ -212,13 +232,18 @@ function winner(cpu, user) {
     }
 
     document.getElementById('resultat').style.display = 'block';
-    document.getElementById('content').style.display = 'none';
+    document.getElementById('content').style.opacity = '30%';
 
-    playAgain.addEventListener('click', function () {
+    // playAgain.addEventListener('load', function () {
+    //     reset();
+    //     document.getElementById('content').style.display = 'block';
+    //     document.getElementById('resultat').style.display = 'none';
+    // })
+    setTimeout(function () {
         reset();
-        document.getElementById('content').style.display = 'block';
+        document.getElementById('content').style.opacity = '100%';
         document.getElementById('resultat').style.display = 'none';
-    })
+    }, 700);
 }
 
 console.log('┏━━━┓┏┓━━━━━━━┏┓━━━━━━━━━━━━━━━━━━━┏┓━┏┓━━━━━━━━━━┏┓━━━━━━━━━━━━━━━━━━━\n┃┏━┓┃┃┃━━━━━━━┃┃━━━━━━━━━━━━━━━━━━┏┛┗┓┃┃━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━\n┃┃━┗┛┃┃━┏┓┏━━┓┃┃┏┓━━━━┏━━┓┏━┓━━━━━┗┓┏┛┃┗━┓┏━━┓━━━━┃┃━┏━━┓┏━━┓┏━━┓━━━━━━\n┃┃━┏┓┃┃━┣┫┃┏━┛┃┗┛┛━━━━┃┏┓┃┃┏┓┓━━━━━┃┃━┃┏┓┃┃┏┓┃━━━━┃┃━┃┏┓┃┃┏┓┃┃┏┓┃━━━━━━\n┃┗━┛┃┃┗┓┃┃┃┗━┓┃┏┓┓━━━━┃┗┛┃┃┃┃┃━━━━━┃┗┓┃┃┃┃┃┃━┫━━━━┃┗┓┃┗┛┃┃┗┛┃┃┗┛┃┏┓┏┓┏┓\n┗━━━┛┗━┛┗┛┗━━┛┗┛┗┛━━━━┗━━┛┗┛┗┛━━━━━┗━┛┗┛┗┛┗━━┛━━━━┗━┛┗━━┛┗━┓┃┗━━┛┗┛┗┛┗┛\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┏━┛┃━━━━━━━━━━\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗━━┛━━━━━━━━━━')

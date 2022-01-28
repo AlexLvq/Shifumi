@@ -101,6 +101,136 @@ body {
 
 
 /* -------------------------------------Page 2------------------------------------ */
+/* ---------------------------Modal------------------------------- */
+/* ---------------------------------------------------------- */
+#tooltip{
+    width: 20%;
+    opacity: 100% !important;
+    position: relative;
+}
+
+#anim{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#tooltip2{
+    width: 20%;
+    opacity: 100% !important;
+    position: relative;
+}
+
+#anim2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#anim:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+#paper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#paper:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+
+#scissors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#scissors:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+
+#rock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#rock:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+
+
+
+
+
 #bouttonsign{
     display: flex;
     justify-content: center;
@@ -181,7 +311,7 @@ span{
 .pourcentage{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     font-size: 30px;
@@ -189,6 +319,11 @@ span{
 
 .pourcent{
     padding-top: 2%;
+    padding-bottom: 40%;
+}
+
+.winrate{
+    padding-top: 30%;
 }
 
 .espacesign{
@@ -207,18 +342,22 @@ span{
 .leresultat{
     width: 100vw;
     height: 100vh;
-    font-weight: 500;
-    font-size: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+h2{
+    font-size: 100px !important;
+}
+
 #resultat{
     display: none;
     position: absolute;
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 .playagain{
@@ -318,6 +457,11 @@ span{
     width: 15%;
 }
 
+h2{
+    font-size: 50px !important;
+    text-align: center;
+}
+
 #content{
     height: 100vh;
     width: 100vw;
@@ -408,10 +552,85 @@ p{
     width: 80%;
 }
 
+.pourcent{
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+
+#paper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#paper:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+
+#scissors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    0% { 
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+#scissors:hover {
+    animation: shake 500ms ease-in-out forwards;
+}
+
+#rock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  @keyframes shake {
+    10%{
+        transform: none;
+    }
+  }
+  
+#rock:hover {
+    animation: none;
+}
+
+
 }
 
 /* -------------------------------------------------------- */
-/* --------------------------Phone------------------------- */
+/* --------------------------Ipad------------------------- */
 /* -------------------------------------------------------- */
 @media screen and (min-width:768px) and (max-width:992px){
 
@@ -423,6 +642,11 @@ p{
     .sign{
         width: 25%;
         padding-top: 5%;
+    }
+
+    h2{
+        font-size: 50px !important;
+        text-align: center;
     }
 
     .formerond{
@@ -446,6 +670,11 @@ p{
 
     .coin{
         width: 20%;
+    }
+
+    .pourcent{
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
 }
